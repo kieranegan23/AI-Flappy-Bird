@@ -54,34 +54,6 @@ class NeuralNetwork:
     def sigmoid(self, x):
         return 1 / (1 + math.exp(-x))
     
-    # GETTERS AND SETTERS
-    def get_weightInputToHidden(self):
-        import copy
-        return copy.deepcopy(self.weightInputToHidden)
-
-    def set_weightInputToHidden(self, new_weights):
-        self.weightInputToHidden = new_weights
-
-    def get_biasHidden(self):
-        import copy
-        return copy.deepcopy(self.biasHidden)
-
-    def set_biasHidden(self, new_bias):
-        self.biasHidden = new_bias
-
-    def get_weightHiddenToOutput(self):
-        import copy
-        return copy.deepcopy(self.weightHiddenToOutput)
-
-    def set_weightHiddenToOutput(self, new_weights):
-        self.weightHiddenToOutput = new_weights
-
-    def get_biasOutput(self):
-        return self.biasOutput
-
-    def set_biasOutput(self, new_bias):
-        self.biasOutput = new_bias
-
     def copy(self):
         newNN = NeuralNetwork(5,6,1)
 
