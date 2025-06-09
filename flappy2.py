@@ -197,19 +197,7 @@ def main():
                         bird.score += 1
 
             current_score = max((bird.score for bird in birds), default=0)
-            """
-            # Win screen when score reaches 50
-            if current_score >= 50:
-                SCREEN.fill((255, 255, 0))  
-                win_text = FONT.render("YOU WIN!", True, (0, 0, 0))  
-                gen_text = FONT.render(f"GENERATIONS: {generation}", True, (0, 0, 0))
-                SCREEN.blit(win_text, (WIDTH // 2 - win_text.get_width() // 2, HEIGHT // 2 - 40))
-                SCREEN.blit(gen_text, (WIDTH // 2 - gen_text.get_width() // 2, HEIGHT // 2 + 10))
-                pygame.display.update()
-                pygame.time.wait(10000)  
-                pygame.quit()
-                sys.exit()
-            """
+
             #best score
             if current_score > best_score:
                 best_score = current_score
@@ -237,7 +225,7 @@ def main():
 
         any_success = any(bird.score > 0 for bird in birds)
         
-        # Mutation process
+        # Mutation processs
         if any_success:
             survivors = select_best(birds, 5)
             num_elite = 5
