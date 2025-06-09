@@ -53,7 +53,7 @@ class Bird:
             self.y / HEIGHT,                             # 1 bird y-position
             (self.vel + 9) / 32,                         # 2 bird velocity
             next_pipe.height / HEIGHT,                   # 3 height of top pipe
-            (next_pipe.height + PIPE_GAP) / HEIGHT, # 4 height of botttom pipe
+            (next_pipe.height + PIPE_GAP) / HEIGHT,      # 4 height of botttom pipe
             (next_pipe.x - self.rect.x) / WIDTH          # 5 horizontal distance to pipe
         ]
         output = self.nn.feedForward(inputs)
@@ -83,7 +83,7 @@ class Pipe:
 
     def __init__(self):
         self.x = WIDTH
-        self.height = random.randint(50, HEIGHT - PIPE_GAP - 50)
+        self.height = random.randint(50, HEIGHT - PIPE_GAP - 100)
         self.top_rect = pygame.Rect(self.x, 0, PIPE_WIDTH, self.height)
         self.bottom_rect = pygame.Rect(self.x, self.height + PIPE_GAP, PIPE_WIDTH, HEIGHT - self.height - PIPE_GAP)
         self.id = Pipe.PIPE_ID_COUNTER
@@ -197,7 +197,7 @@ def main():
                         bird.score += 1
 
             current_score = max((bird.score for bird in birds), default=0)
-            
+            """
             # Win screen when score reaches 50
             if current_score >= 50:
                 SCREEN.fill((255, 255, 0))  
@@ -209,7 +209,7 @@ def main():
                 pygame.time.wait(10000)  
                 pygame.quit()
                 sys.exit()
-
+            """
             #best score
             if current_score > best_score:
                 best_score = current_score
